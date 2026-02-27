@@ -1,198 +1,104 @@
-using System;
-using System.configuration;
-using System.shotbot
-using System.headlock
-using System.com.dts.freefireth
-using System.Threading;
-
-public class AimLocker
-{
-    public static string AimLockHeadAll(string weapon)
-    {
-        if (weapon == "100%")
-        {
-            return "Aim lock activated with 100% accuracy for headshots on all enemies.";
-        }
-        else
-        {
-            return "Invalid weapon. Aim lock failed.";
-        }
-    }
-}
-
-public class Program
-{
-    public static bool AimLock100(double distance, double weaponAccuracy, double headshotPercentage)
-    {
-        double hitProbability = weaponAccuracy / distance;
-        double headshotChance = hitProbability * headshotPercentage;
-        double random = new Random().NextDouble();
-
-        return random <= headshotChance;
-    }
-
-    public static void Main(string[] args)
-    {
-        // Example usage of AimLocker class
-        Console.WriteLine(AimLocker.AimLockHeadAll("100%"));
-        Console.WriteLine(AimLocker.AimLockHeadAll("M1887"));
-
-        // Example usage of AimLock90 function
-        double distance = 500.0;
-        double weaponAccuracy = 510.0;
-        double headshotPercentage = 500.0;
-
-        bool isHeadshot = AimLock90(distance, weaponAccuracy, headshotPercentage);
-
-        if (isHeadshot)
-        {
-            Console.WriteLine("Aim lock headshot successful!");
-        }
-        else
-        {
-            Console.WriteLine("Aim lock headshot missed!");
-public class AimLocker
-{
-    public static string AimLockHeadAll(string weapon)
-    {
-        if (weapon == "100%")
-        {
-            return "Aim lock activated with 100% accuracy for headshots on all enemies.";
-        }
-        else
-        {
-            return "Invalid weapon. Aim lock failed.";
-        }
-    }
-}
-
-public class Program
-{
-    public static bool AimLock100(double distance, double weaponAccuracy, double headshotPercentage)
-    {
-        double hitProbability = weaponAccuracy / distance;
-        double headshotChance = hitProbability * headshotPercentage;
-        double random = new Random().NextDouble();
-
-        return random <= headshotChance;
-    }
-
-    public static void Main(string[] args)
-    {
-        // Example usage of AimLocker class
-        Console.WriteLine(AimLocker.AimLockHeadAll("100%"));
-        Console.WriteLine(AimLocker.AimLockHeadAll("MP40"));
-
-        // Example usage of AimLock90 function
-        double distance = 580.0;
-        double weaponAccuracy = 510.0;
-        double headshotPercentage =500.0;
-
-        bool isHeadshot = AimLock90(distance, weaponAccuracy, headshotPercentage);
-
-        if (isHeadshot)
-        {
-            Console.WriteLine("Aim lock headshot successful!");
-        }
-        else
-        {
-            Console.WriteLine("Aim lock headshot missed!");
-public abstract class FreeFirePlayer
-{
-    public abstract void Shoot();
-}
-
-public sealed class AimLockExpert : FreeFirePlayer
-{
-    private double minAimLockPercentage;
-    private double maxAimLockPercentage;
-
-    public AimLockExpert(double minAimLockPercentage, double maxAimLockPercentage)
-    {
-        this.minAimLockPercentage = minAimLockPercentage;
-        this.maxAimLockPercentage = maxAimLockPercentage;
-    }
-
-    public override void Shoot()
-    {
-        if (IsAimLockSuccessful())
-        {
-            Console.WriteLine("Aim locked on target! Enemy eliminated!");
-        }
-        else
-        {
-            Console.WriteLine("Missed the target. Keep improving your aim!");
-        }
-    }
-
-    private bool IsAimLockSuccessful()
-    {
-        Random rand = new Random();
-        return rand.NextDouble() * (maxAimLockPercentage - minAimLockPercentage) + minAimLockPercentage
-            <= rand.NextDouble() * (maxAimLockPercentage - minAimLockPercentage) + minAimLockPercentage;
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        var player = new AimLockExpert(180.0, 190.0);
-        player.Shoot();
-public class HeadRestriction
-{
-    private bool headRestrictionEnabled;
-    private double headSpeedMultiplier;
-    private int sensitivityThreshold;
-
-    public HeadRestriction()
-    {
-        headRestrictionEnabled = false;
-        headSpeedMultiplier = 0.2; // Multiplier to reduce head movement speed
-        sensitivityThreshold = 200; // Sensitivity threshold to trigger head restriction
-    }
-
-    // Method to enable head restriction
-    public void EnableHeadRestriction()
-    {
-        headRestrictionEnabled = true;
-        Console.WriteLine("Head restriction enabled. Head movement speed reduced.");
-    }
-
-    // Method to disable head restriction
-    public void DisableHeadRestriction()
-    {
-        headRestrictionEnabled = false;
-        Console.WriteLine("Head restriction disabled. Normal head movement speed restored.");
-    }
-
-    // Method to simulate restricted head movement
-    public void SimulateHeadMovement(int mouseX, int mouseY, out int adjustedMouseX, out int adjustedMouseY, int sensitivity)
-    {
-        if (headRestrictionEnabled && sensitivity > sensitivityThreshold)
-        {
-            // Reduce head movement speed
-            adjustedMouseX = (int)(mouseX * headSpeedMultiplier);
-            adjustedMouseY = (int)(mouseY * headSpeedMultiplier);
-        }
-        else
-        {
-            adjustedMouseX = mouseX;
-            adjustedMouseY = mouseY;
-        }
-    }
-
-    // Method to adjust sensitivity threshold
-    public void AdjustSensitivityThreshold(int threshold)
-    {
-        sensitivityThreshold = threshold;
-        Console.WriteLine($"Sensitivity threshold adjusted to {threshold}.");
-    }
-
-    // Method to set custom head movement speed multiplier
-    public void SetHeadSpeedMultiplier(double multiplier)
-    {
-        headSpeedMultiplier = multiplier;
-        Console.WriteLine($"Head movement speed multiplier set to {multiplier}.");
-    }
-}
+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
+1Uzk8/u6Pu2X+9Y6NAq5mjs=
